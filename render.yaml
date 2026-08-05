@@ -1,0 +1,51 @@
+# Render Blueprint - Backend Laravel SMKN 5 Bantaeng
+# Deploy via "New Blueprint" atau dari repo ini di Render.
+# Database pakai PostgreSQL eksternal (Neon free tier) karena
+# Render free tier tidak menyediakan managed database gratis.
+
+services:
+  - type: web
+    name: smkn5-bantaeng-api
+    runtime: php
+    plan: free
+    buildCommand: |-
+      composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+      php artisan config:clear
+      php artisan optimize:clear
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    healthCheckPath: /up
+    envVars:
+      - key: APP_NAME
+        value: "SMKN 5 Bantaeng"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        sync: false
+      - key: APP_URL
+        value: "https://smkn5-bantaeng-api.onrender.com"
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_DATABASE
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_DRIVER
+        value: file
+      - key: CACHE_STORE
+        value: file
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: FILESYSTEM_DISK
+        value: local
