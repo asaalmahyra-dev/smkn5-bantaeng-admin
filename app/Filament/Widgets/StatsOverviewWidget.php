@@ -80,7 +80,7 @@ class StatsOverviewWidget extends BaseWidget
         // 7. Total Mitra
         $stats[] = Stat::make('Mitra', Partner::count())
             ->description('Kerja sama industri')
-            ->descriptionIcon('heroicon-o-handshake')
+            ->descriptionIcon('heroicon-o-briefcase')
             ->color('gray');
 
         // 8. Total Fasilitas
