@@ -93,6 +93,7 @@ TextInput::make('title')
                         FileUpload::make('cover_image')
                             ->label('Gambar Sampul')
                             ->image()
+                            ->disk('public')
                             ->directory('news')
                             ->visibility('public'),
                         DateTimePicker::make('published_at')
