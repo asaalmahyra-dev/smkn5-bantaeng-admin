@@ -71,7 +71,9 @@ return 'heroicon-o-user-group';
                         Forms\Components\FileUpload::make('logo')
                             ->label('Logo')
                             ->image()
-                            ->directory('partners'),
+                            ->disk('public')
+                            ->directory('partners')
+                            ->visibility('public'),
                         Forms\Components\RichEditor::make('description')
                             ->label('Deskripsi')
                             ->columnSpanFull(),

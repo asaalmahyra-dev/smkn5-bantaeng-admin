@@ -71,7 +71,9 @@ class DepartmentResource extends Resource
                         Forms\Components\FileUpload::make('cover_image')
                             ->label('Gambar Sampul')
                             ->image()
+                            ->disk('public')
                             ->directory('departments')
+                            ->visibility('public')
                             ->columnSpanFull(),
                         Forms\Components\Toggle::make('featured')
                             ->label('Unggulan'),

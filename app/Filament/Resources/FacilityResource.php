@@ -80,7 +80,9 @@ class FacilityResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Gambar Fasilitas')
                             ->image()
-                            ->directory('facilities'),
+                            ->disk('public')
+                            ->directory('facilities')
+                            ->visibility('public'),
                         Forms\Components\Toggle::make('featured')
                             ->label('Unggulan'),
                     ]),

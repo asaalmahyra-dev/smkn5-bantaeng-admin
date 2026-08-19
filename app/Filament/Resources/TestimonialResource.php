@@ -44,7 +44,9 @@ class TestimonialResource extends Resource
                         Forms\Components\FileUpload::make('photo')
                             ->label('Foto')
                             ->image()
-                            ->directory('testimonials'),
+                               ->disk('public')
+                            ->directory('testimonials')
+                            ->visibility('public'),
                         Forms\Components\Select::make('rating')
                             ->label('Rating')
                             ->options([

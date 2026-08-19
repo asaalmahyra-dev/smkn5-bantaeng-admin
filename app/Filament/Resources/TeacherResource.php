@@ -67,7 +67,9 @@ class TeacherResource extends Resource
                         Forms\Components\FileUpload::make('photo')
                             ->label('Foto')
                             ->image()
-                            ->directory('teachers'),
+                            ->disk('public')
+                            ->directory('teachers')
+                            ->visibility('public'),
                         Forms\Components\RichEditor::make('bio')
                             ->label('Biografi')
                             ->columnSpanFull(),

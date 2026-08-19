@@ -75,7 +75,9 @@ class GalleryResource extends Resource
                         Forms\Components\FileUpload::make('image')
                             ->label('Gambar')
                             ->image()
+                            ->disk('public')
                             ->directory('gallery')
+                            ->visibility('public')
                             ->visible(fn (Forms\Get $get): bool => $get('type') === 'image'),
                         Forms\Components\TextInput::make('video')
                             ->label('URL Video (YouTube/Vimeo)')

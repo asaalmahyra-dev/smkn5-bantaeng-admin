@@ -72,7 +72,9 @@ protected static ?int $navigationSort = 4;
                         Forms\Components\FileUpload::make('image')
                             ->label('Gambar')
                             ->image()
-                            ->directory('achievements'),
+                            ->disk('public')
+                            ->directory('achievements')
+                            ->visibility('public'),
                         Forms\Components\TagsInput::make('participants')
                             ->label('Partisipan')
                             ->placeholder('Tambahkan nama partisipan'),

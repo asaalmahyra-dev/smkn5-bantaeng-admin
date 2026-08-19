@@ -105,7 +105,10 @@ Forms\Components\Select::make('icon')
                         Forms\Components\FileUpload::make('image')
                             ->label('Gambar')
                             ->image()
-                            ->directory('extracurriculars'),
+                            ->disk('public')
+                            ->directory('extracurriculars')
+                            ->visibility('public')
+                            ->columnSpanFull(),
                         Forms\Components\TextInput::make('image_alt')
                             ->label('Alt Text Gambar')
                             ->maxLength(255),
