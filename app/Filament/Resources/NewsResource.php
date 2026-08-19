@@ -94,6 +94,7 @@ TextInput::make('title')
                             ->label('Gambar Sampul')
                             ->image()
                             ->directory('news'),
+                            ->visibility('public'),
                         DateTimePicker::make('published_at')
                             ->label('Tanggal Terbit'),
                         Toggle::make('featured')
